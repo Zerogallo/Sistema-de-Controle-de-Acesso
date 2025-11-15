@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Acesso</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>👥 Registrar Acesso</h1>
+            <nav>
+                <a href="/" class="btn">Início</a>
+                <a href="/dashboard" class="btn">Dashboard</a>
+                <a href="/registrar" class="btn active">Registrar Acesso</a>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <div class="form-section">
+                {% if mensagem %}
+                <div class="message {{ 'success' if 'registrada' in mensagem else 'error' }}">
+                    {{ mensagem }}
+                </div>
+                {% endif %}
+
+                <form method="POST" class="access-form">
+                    <div class="form-group">
+                        <label for="nome">Nome Completo:</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cpf">CPF:</label>
+                        <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="empresa">Empresa:</label>
+                        <input type="text" id="empresa" name="empresa" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="destino">Destino/Setor:</label>
+                        <select id="destino" name="destino" required>
+                            <option value="">Selecione o destino</option>
+                            <option value="Recepção">Recepção</option>
+                            <option value="Administração">Administração</option>
+                            <option value="TI">TI</option>
+                            <option value="Financeiro">Financeiro</option>
+                            <option value="RH">RH</option>
+                            <option value="Manutenção">Manutenção</option>
+                            <option value="Visitante">Visitante</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tipo de Acesso:</label>
+                        <div class="radio-group">
+                            <label>
+                                <input type="radio" name="tipo_acesso" value="entrada" checked>
+                                Entrada
+                            </label>
+                            <label>
+                                <input type="radio" name="tipo_acesso" value="saida">
+                                Saída
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn primary large">Registrar Acesso</button>
+                </form>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Controle de Acesso</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Dashboard de Acessos</h1>
+            <nav>
+                <a href="/" class="btn">Início</a>
+                <a href="/dashboard" class="btn active">Dashboard</a>
+                <a href="/registrar" class="btn">Registrar Acesso</a>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <!-- Cards de Estatísticas -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total de Acessos</h3>
+                    <div class="stat-number">{{ total_acessos }}</div>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>Acessos Hoje</h3>
+                    <div class="stat-number">{{ acessos_hoje }}</div>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>Pessoas Presentes</h3>
+                    <div class="stat-number">{{ pessoas_presentes }}</div>
+                </div>
+            </div>
+
+            <!-- Gráficos -->
+            {% if grafico_url %}
+            <div class="chart-section">
+                <h2>Análise de Acessos</h2>
+                <div class="chart-container">
+                    <img src="data:image/png;base64,{{ grafico_url }}" alt="Gráficos de Controle de Acesso" class="chart-image">
+                </div>
+            </div>
+            {% else %}
+            <div class="no-data">
+                <h2>Nenhum dado disponível para análise</h2>
+                <p>Registre alguns acessos para visualizar os gráficos.</p>
+            </div>
+            {% endif %}
+        </main>
+    </div>
+</body>
+</html>

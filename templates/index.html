@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Controle de Acesso</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏢 Sistema de Controle de Acesso</h1>
+            <nav>
+                <a href="/" class="btn">Início</a>
+                <a href="/dashboard" class="btn">Dashboard</a>
+                <a href="/registrar" class="btn">Registrar Acesso</a>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <div class="welcome-section">
+                <h2>Bem-vindo ao Sistema de Controle de Acesso</h2>
+                <p>Gerencie e monitore os acessos ao seu estabelecimento de forma eficiente.</p>
+                
+                <div class="quick-stats">
+                    <div class="stat-card">
+                        <h3>📊 Dashboard</h3>
+                        <p>Visualize gráficos e estatísticas dos acessos</p>
+                        <a href="/dashboard" class="btn primary">Ver Dashboard</a>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <h3>👥 Registrar</h3>
+                        <p>Registre entradas e saídas</p>
+                        <a href="/registrar" class="btn primary">Registrar Acesso</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
